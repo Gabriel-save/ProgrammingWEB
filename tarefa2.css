@@ -1,0 +1,31 @@
+.tabela{
+    border: 2px solid black;
+    text-align: left;
+    border-collapse: collapse;
+    height: 20px;
+    width: 30%;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15pt;
+    color: black;
+    font-weight: bold;
+}
+
+h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+    color: black;
+    font-weight: bold;
+}
+
+.button{
+    width: 100px;
+    height: 20pt;
+    font-weight: bold;
+    font-size: 10pt;
+    
+}
