@@ -1,41 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>tarefinha</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tarefa 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="tarefa2.css">
     <script>
+        function realtime(){
+            hratual = new Date();
 
+            hora = hratual.getHours();
+            min = hratual.getMinutes();
+            sec = hratual.getSeconds();
+
+            horario = hora + ":" + min + ":" + sec;
+
+            document.getElementById('relogio').value = horario;
+            setTimeout('realtime()',1000)
+
+            if(hralarme == horario){
+                alert("Alarme" + " " + hralarme + " - " + assunto)
+            }
+        }
+
+        function getdados(){
+            this.hralarme = document.getElementById('hralarme').value;
+            this.assunto = document.getElementById('assunto').value;
+        }
+        //Criando o Vetor para os Dados.
+        vetor = new Array();
+
+        //Alocando os dados no vetor.
+
+         function alocar(){
+            vetor.push(new getdados());
+
+        }
+
+        //Função para Incluir os dados de maneira dinamica na tabela
+        function incluir(){
+            aux_dados = "";
+            aux_dados = tablebase();
+
+
+            for (dados in vetor){
+                aux_dados += attable(vetor[dados].assunto, vetor[dados].hralarme)
+            }
+            document.getElementById("tabela").innerHTML = aux;
+        }
+        
+        //Tabela base 
+        function tablebase(){
+            
+            aux = "";
+
+            aux += `<tr class="tabela">`;
+            aux += `<td class="tabela">Horario</td>`;
+            aux += `<td class="tabela">Assunto</td>`;
+            aux += `</tr>`;
+
+            //return aux;
+            
+        }
+        
+        //Tabela que vai ser Atualizada
+        function attable(assunto,hralarme){
+            aux += "";
+            
+            aux += `<tr class="tabela">`;
+            aux += `<td class="tabela">${assunto}</td>`;
+            aux += `<td class="tabela">${hralarme}</td>`;
+            aux += `</tr>`;
+            
+            //return aux
+        }
+        
+        //Função do botão
+        function executar(){
+            getdados();
+            alocar();
+            incluir();
+        }
     </script>
 </head>
-<body onload="relogioatual()">
+<body onload="realtime()">
     <form id="frm">
-        <b>WEB DESPERTADOR</b><br>
+        <h1> <u>WEB DESPERTADOR</u></h1><br>
         <br>
-        Rélogio:<br>
-        <input type="text" id="relogio" size="6"><br>
+        <h2>RELOGIO<br>
+        <input type="text" width="10" id="relogio"><br>
         <br>
-        Hora do Alarme: <br>
-        <input type="text" id="despertar"><br>
+        Hora do Alarme:<br>
+        <input type="text" id="hralarme"><br>
         <br>
-        Assunto:
+        Assunto:<br>
         <input type="text" id="assunto"><br>
         <br>
-        <input type="button" id="inserir" value="incluir" onclick="executar()">
-        
-        <div id="agendamentos">
-            <table id="tabela">
-                <tr>
-                    <th>
-
-                    </th>
-                </tr>
-                <tr></tr>
-
-            </table>
-
+        <input type="button" value="Incluir" class="button" onclick="executar()"><br>
+        <br>
+        </h2>
+        <div>
+            <h1>AGENDAMENTOS:</h1>
         </div>
+        <br>
+
+        <table id="tabela" class="tabela">
+            <tr class="tabela">
+            <td class="tabela">Assunto</td>
+            <td class="tabela">Horário</td>
+            </tr>
+            </table>
     </form>
     
 </body>
