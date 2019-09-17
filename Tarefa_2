@@ -19,8 +19,13 @@
             document.getElementById('relogio').value = horario;
             setTimeout('realtime()',1000)
 
-            if(hralarme == horario){
-                alert("Alarme" + " " + hralarme + " - " + assunto)
+            //Loop para percorrer o vetor e fazer a verificação com a hora atual//
+            for (dados in vetor){
+                
+                if(vetor[dados].hralarme == horario){
+                   alert("Alarme: " + vetor[dados].hralarme + " - " + vetor[dados].assunto)
+               }
+
             }
         }
 
